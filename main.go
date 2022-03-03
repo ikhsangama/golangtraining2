@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	cards := deck{newCard(), "2"}
-	cards = append(cards, "6")
+	cards := newDeck()
 	fmt.Println(cards)
 	//printState()
 
