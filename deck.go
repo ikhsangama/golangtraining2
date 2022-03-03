@@ -17,12 +17,8 @@ func newDeck() deck {
 	cardValues := []string{"Ace", "Two", "Three"}
 
 	for _, suit := range cardSuits {
-		card := suit
-		fmt.Println(card, "<<<1")
 		for _, value := range cardValues {
-			fmt.Println(card, "<<<")
-			card = value + " of " + card
-			cards = append(cards, card)
+			cards = append(cards, value+" of "+suit)
 		}
 	}
 
