@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
@@ -16,4 +19,18 @@ func TestNewDeck(t *testing.T) {
 		t.Errorf("Expected: Three of Diamonds, Actual: %v", d[0])
 	}
 
+}
+
+func TestSaveToDeckAndNewDeckFromFile(t *testing.T) {
+	_ = os.Remove("_deskTesting")
+
+	d := newDeck()
+	_ = d.saveToFile("_deskTesting")
+
+	loadedDeck := newDeckFromFile("_deskTesting")
+	if len(loadedDeck) != 9 {
+		t.Errorf("Expected 9, but got %v", len(d))
+	}
+
+	_ = os.Remove("_deskTesting")
 }
