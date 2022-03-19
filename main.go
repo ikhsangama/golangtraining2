@@ -2,20 +2,35 @@ package main
 
 import "fmt"
 
+type englishBot struct {
+}
+type spanishBot struct {
+}
+
 func main() {
-	colors := map[string]string{
-		"red":   "#ff0000",
-		"green": "#4ba1fi",
-	}
+	eb := englishBot{}
+	//sb := spanishBot{}
 
-	//add extra key-value pair
-	colors["white"] = "#ffffff"
-
-	printMap(colors)
+	printGreeting(eb)
+	//printGreeting(sb)
 }
 
-func printMap(c map[string]string) {
-	for color, hex := range c {
-		fmt.Println("Hex code for", color, "is", hex)
-	}
+// you can omit the value of struct if not using it
+func (englishBot) getGreeting() string {
+	//	CUSTOM LOGIC
+	return "Hi There"
 }
+
+// you can omit the value of struct if not using it
+func (spanishBot) getGreeting() string {
+	//	CUSTOM LOGIC
+	return "Hola"
+}
+
+func printGreeting(eb englishBot) {
+	fmt.Println(eb.getGreeting())
+}
+
+//func printGreeting(sb spanishBot) {
+//	fmt.Println(sb.getGreeting())
+//}
