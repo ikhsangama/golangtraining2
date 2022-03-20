@@ -11,5 +11,12 @@ func main() {
 		fmt.Println("Error:", err)
 		return
 	}
-	fmt.Println(resp)
+
+	bs := make([]byte, 99999)
+	_, _ = resp.Body.Read(bs)
+	//if err != nil {
+	//	fmt.Println("Error2:", err)
+	//	return
+	//}
+	fmt.Println(string(bs))
 }
