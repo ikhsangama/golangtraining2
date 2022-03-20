@@ -3,6 +3,10 @@ package main
 import "fmt"
 
 type bot interface {
+	// If you are a type in this program with a
+	// function called 'getGreeting' and you return a
+	// string then you are now an honorary member
+	// of type 'bot'
 	getGreeting() string
 }
 
