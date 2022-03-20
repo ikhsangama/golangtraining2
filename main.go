@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+type bot interface {
+	getGreeting() string
+}
+
 type englishBot struct {
 }
 type spanishBot struct {
@@ -9,10 +13,14 @@ type spanishBot struct {
 
 func main() {
 	eb := englishBot{}
-	//sb := spanishBot{}
+	sb := spanishBot{}
 
 	printGreeting(eb)
-	//printGreeting(sb)
+	printGreeting(sb)
+}
+
+func printGreeting(b bot) {
+	fmt.Println(b.getGreeting())
 }
 
 // you can omit the value of struct if not using it
@@ -26,11 +34,3 @@ func (spanishBot) getGreeting() string {
 	//	CUSTOM LOGIC
 	return "Hola"
 }
-
-func printGreeting(eb englishBot) {
-	fmt.Println(eb.getGreeting())
-}
-
-//func printGreeting(sb spanishBot) {
-//	fmt.Println(sb.getGreeting())
-//}
